@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <style>
+    html *
+        {
+           font-size: .50em !important;
+           color: #000 !important;
+           font-family: Arial !important;
+        }
+  </style>
+</head>
+
+<h1>Seed Signer Onetimes</h1>
+
+{% for words, image_base_64 in word_bundle %}
+
+  <h3>Wallet #{{ loop.index }}</h3>
+
+  <table width=100%>
+
+    <tr>
+
+      <td width=25%>
+        {% for word in words.split()[0:6] %}
+          <p>{{ loop.index }}. {{ word }}</p>
+        {% endfor %}
+      </td>
+
+      <td width=25%>
+        {% for word in words.split()[6:12] %}
+          <p>{{ loop.index + 6}}. {{ word }}</p>
+        {% endfor %}
+      </td>
+
+      <td width=25%>
+        {% for word in words.split()[12:18] %}
+          <p>{{ loop.index + 12}}. {{ word }}</p>
+        {% endfor %}
+      </td>
+
+      <td width=25%>
+        {% for word in words.split()[18:24] %}
+          <p>{{ loop.index + 18 }}. {{ word }}</p>
+        {% endfor %}
+      </td>
+
+      <td width=50%>  <img src="data:image/png;base64,{{image_base_64}}" width = "150", height = "150"></td>
+    </tr>
+
+  </table>
+
+  <hr>
+
+{% endfor %}
+
+</html>
