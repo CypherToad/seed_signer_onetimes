@@ -20,7 +20,7 @@ mnemo = Mnemonic("english")
 # load our words.txt which was fetched from Trezor's github
 # https://github.com/trezor/python-mnemonic/blob/master/src/mnemonic/wordlist/english.txt
 with open('words.txt') as f:
-    words = [ i for i in f.read() if i ]
+    wordlist = [ i for i in f.read().split('\n') if i ]
 
 
 def seed_qr_string(words):
@@ -28,13 +28,15 @@ def seed_qr_string(words):
     Return a string representation of our words for seed_signer
     """
 
-    return ''.join([ words[i:i+4] for i in range(0, len(words), 4) ])
+    return ''.join([str(wordlist.index(w)).zfill(4) for w in words.split()])
 
 
 def seed_qr_base64(words):
     """
     Return a base64 PNG encoding of our seed_qr.
     """
+
+    print(seed_qr_string(words))
 
     # create a qrcode of our seed_qr_string
     img = qrcode.make(
