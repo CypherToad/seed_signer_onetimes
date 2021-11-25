@@ -4,7 +4,7 @@
 
 A minimal python script for generating multiple onetime use **bip39 seed phrases**, and corresponding [Seed Signer Seed](https://github.com/SeedSigner/seedsigner) seed phrase **qr code**.
 
-![screenshot](/examples/screenshoot.png)
+![screenshot](/examples/screenshoot_v1.png)
 
 ### Dependencies
 
